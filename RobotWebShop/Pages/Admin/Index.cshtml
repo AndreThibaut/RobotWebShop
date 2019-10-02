@@ -1,0 +1,67 @@
+﻿@page
+@model RobotWebShop.Pages.Admin.IndexModel
+@{
+}
+
+
+
+<div id="app" class="container">
+    <div>
+        <div v-if="!editing">
+            <button class="button" @@click="newRobot">Add new Robot</button>
+            <table class="table">
+                <tr>
+                    <th>Robot ID</th>
+                    <th>Robot Model</th>
+                    <th>Robot Function</th>
+                    <th>Robot Mvmnt Type</th>
+                    <th>Robot Price</th>
+                </tr>
+                <tr v-for="(robot, index) in robots">
+                    <td>{{robot.robotID}}</td>
+                    <td>{{robot.model}}</td>
+                    <td>{{robot.function}}</td>
+                    <td>{{robot.movementType}}</td>
+                    <td>{{robot.price}}</td>
+                    <td><button @@click="editRobot(robot.robotID, index)">Edit</button></td>
+                    <td><button @@click="deleteRobot(robot.robotID, index)">Delete</button></td>
+                </tr>
+            </table>
+        </div>
+        <div v-else>
+            <div class="field">
+                <div class="control">
+                    <label class="label">Model</label>
+                    <input class="input" v-model="robotModel.model" />
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <label class="label">Function</label>
+                    <input class="input" v-model="robotModel.function" />
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <label class="label">Movement Type</label>
+                    <input class="input" v-model="robotModel.movementType" />
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <label class="label">Price</label>
+                    <input class="input" v-model="robotModel.price" />
+                </div>
+            </div>
+            <button class="button is-success" @@click="createRobot" v-if="!robotModel.robotID">Add new Robot</button>
+            <button class="button is-warning" @@click="updateRobot" v-else>Update Robot</button>
+            <button class="button is-danger" @@click="cancel">Cancel</button>
+        </div>
+    </div> 
+</div>
+
+
+@section scripts{
+    @*<script src="~/js/Admin/robot-component.js"></script>*@
+    <script src="~/js/Admin/robot.js"></script>
+}

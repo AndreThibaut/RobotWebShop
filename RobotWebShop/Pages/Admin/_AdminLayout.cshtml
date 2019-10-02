@@ -1,0 +1,76 @@
+﻿@inject IAuthorizationService authService
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - RobotWebShop</title>
+
+    <environment include="Development">
+        <link href="~/lib/bulma-0.7.5/bulma-0.7.5/css/bulma.css" rel="stylesheet" />
+        
+    </environment>
+    <environment include="Production">
+        <link href="~/lib/bulma-0.7.5/bulma-0.7.5/css/bulma.css" rel="stylesheet" />
+        
+    </environment>
+</head>
+<body>
+
+    <h3 class="has-text-centered">Admin Panel</h3>
+    <div class="container">
+        <partial name="_CookieConsentPartial" />
+        <main role="main" class="pb-3">
+
+            <a asp-page="/Index">Home</a>
+
+            <div class="columns">
+                <div class="column is-3">
+					<div class="menu">
+
+						@if ((await authService.AuthorizeAsync(User, "Manager")).Succeeded)
+						{
+							<p class="menu-label">Store Menu</p>
+							<ul class="menu-list">
+								<li><a asp-page="/Admin/Index">Robots</a></li>
+								<li><a asp-page="/Admin/Orders">Orders</a></li>
+								<li><a asp-page="/Admin/Stock">Stock</a></li>
+							</ul>
+						}
+
+						@if ((await authService.AuthorizeAsync(User, "Admin")).Succeeded)
+						{
+							<p class="menu-label">Admin Menu</p>
+							<ul class="menu-list">
+								<li><a asp-page="/Admin/ConfigureUsers">Configure Users</a></li>
+							</ul>
+						}
+							<ul class="menu-list">
+								<li><a asp-page="/Index">Back to main page</a></li>
+							</ul>
+
+						</div>
+                </div>
+                <div class="column is-9">
+                    @RenderBody()
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2019 - RobotWebShop - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,46 @@
+﻿@page
+@model RobotWebShop.Pages.Admin.StockModel
+@{
+}
+            
+<div id="app">
+	<div class="columns">
+		<div class="column is-3">
+			<table class="table">
+				<tr v-for="robot in robots" @@click="selectRobot(robot)">
+					<td>{{robot.model}}</td>
+				</tr>
+			</table>
+		</div>
+		<div class="column is-6" v-if="selectedRobot">
+			<table class="table">
+				<tr v-for="(stock, index) in selectedRobot.stock">
+					<td><input class="input" v-model="stock.model" /></td>
+					<td><input class="input" v-model="stock.quantity" /></td>
+					<td><button class="button is-danger" @@click="deleteStock(stock.stockID, index)">Delete</button></td>
+				</tr>
+			</table>
+			<a class="button is-warning" @@click="updateStock">Update Stock</a>
+		</div>
+		<div class="column is-3" v-if="selectedRobot">
+			<h2 class="title">New Stock</h2>
+			<div class="field">
+				<div class="control">
+					<input class="input" v-model="newStock.model" />
+				</div>
+			</div>
+			<div class="field">
+				<div class="control">
+					<input class="input" v-model="newStock.quantity" />
+				</div>
+			</div>
+			<a class="button is-success" @@click="addStock">Add</a>
+		</div>
+	</div>
+</div>
+
+
+
+@section scripts{
+    <script src="~/js/Admin/stock.js"></script>
+}

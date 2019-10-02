@@ -1,0 +1,14 @@
+﻿@page "{reference}"
+@model RobotWebShop.Pages.OrderModel
+@{
+}
+
+	<div>
+		<h1>@Model.Order.OrderRef</h1>
+		@foreach(var r in Model.Order.Robots)
+		{
+			<div>
+				@r.Model - @r.Type -@r.Description - @r.Price - @r.Quantity
+			</div>
+		}
+	</div>

@@ -1,0 +1,59 @@
+﻿@page "{Model}"
+@model RobotWebShop.Pages.RobotModel
+@{
+}
+
+
+	<div class="hero">
+		<div class="hero-body">
+			<div class="container">
+				<div class="columns">
+					<div class="is-6">
+						<figure class="column image is-128x128">
+							<img src="~/Images/RobotLogo.png" />
+						</figure>
+					</div>
+					<div class=" column is-6">
+						<section>
+							<header class="content">
+								<p class="title">@Model.Robot.Model</p>
+								<p class="subtitle">@Model.Robot.Desciption</p>
+								
+							</header>
+							<main>
+								Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+							</main>
+							<footer>
+								<form method="post">
+									<div class="field">
+										<label class="label">Type</label>
+										<div class="control">
+											<div class="select">
+												<select asp-for="CartViewModel.StockID">
+													@foreach (var s in Model.Robot.Stock)
+													{
+														<option value="@s.StockID">@s.Model</option>
+													}
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="field">
+										<p class="control">
+											<input class="input" asp-for="CartViewModel.Quantity" placeholder="Quantity" value="1"/>
+										</p>
+									</div>
+									<div class="field">
+										<div class="control">
+											<button class="button is-success" type="submit">submit</button>
+										</div>
+									</div>
+								</form>
+							</footer>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+

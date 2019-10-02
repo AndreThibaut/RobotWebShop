@@ -1,0 +1,15 @@
+﻿@model IEnumerable<RobotWebShop.Application.Cart.GetCart.Response>
+@{ }
+
+	<div>
+		<h2>Big Cart Component</h2>
+		@foreach (var r in Model)
+		{
+			<p>@r.Model</p>
+			<p>@r.Price</p>
+			<p>@r.Quantity</p>
+			<p>@r.StockID</p>
+			<hr />
+		}
+
+	</div>

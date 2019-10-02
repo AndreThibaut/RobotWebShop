@@ -1,0 +1,72 @@
+﻿@page
+@model RobotWebShop.Pages.Checkout.CustomerInformationModel
+@{
+}
+
+	<div class="columns">
+		<div class="column is-6">
+			<form method="post">
+				<div class="field">
+					<p class="control">
+						<input asp-for="CustomerInformation.FirstName" class="input" placeholder="First Name" />
+					</p>
+					<span class="help is-warning" asp-validation-for="CustomerInformation.FirstName"></span>
+				</div>
+
+				<div class="field">
+					<p class="control">
+						<input asp-for="CustomerInformation.LastName" class="input" placeholder="Last Name" />
+					</p>
+					<span class="help is-warning" asp-validation-for="CustomerInformation.LastName"></span>
+				</div>
+
+				<div class="field">
+					<p class="control">
+						<input asp-for="CustomerInformation.email" class="input" placeholder="E-Mail" />
+					</p>
+					<span class="help is-warning" asp-validation-for="CustomerInformation.email"></span>
+				</div>
+
+				<div class="field">
+					<p class="control">
+						<input asp-for="CustomerInformation.PhoneNumber" class="input" placeholder="Phone Number" />
+					</p>
+					<span class="help is-warning" asp-validation-for="CustomerInformation.PhoneNumber"></span>
+				</div>
+
+				<div class="field">
+					<p class="control">
+						<input asp-for="CustomerInformation.Address1" class="input" placeholder="Address1" />
+					</p>
+					<span class="help is-warning" asp-validation-for="CustomerInformation.Address1"></span>
+				</div>
+
+				<div class="field">
+					<p class="control">
+						<input asp-for="CustomerInformation.Address2" class="input" placeholder="Address2" />
+					</p>
+					<span class="help is-warning" asp-validation-for="CustomerInformation.Address2"></span>
+				</div>
+
+				<div class="field">
+					<p class="control">
+						<input asp-for="CustomerInformation.City" class="input" placeholder="City" />
+					</p>
+					<span class="help is-warning" asp-validation-for="CustomerInformation.City"></span>
+				</div>
+
+				<div class="field">
+					<p class="control">
+						<input asp-for="CustomerInformation.PostCode" class="input" placeholder="Post Code" />
+					</p>
+					<span class="help is-warning" asp-validation-for="CustomerInformation.PostCode"></span>
+				</div>
+				<div class="field">
+					<button class="button" type="submit"><i class="fab fa-cc-visa"></i></button>
+				</div>
+			</form>
+		</div>
+		<div class="column is-6">
+			<vc:cart view="Default"></vc:cart>
+		</div>
+	</div>

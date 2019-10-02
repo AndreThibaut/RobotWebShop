@@ -1,0 +1,35 @@
+﻿@page
+@model IndexModel
+@{
+	ViewData["Title"] = "Home page";
+}
+
+	<div class="columns is-multiline">
+		@{
+			foreach (var r in Model.Robots)
+			{
+				<div class="column is-3">
+					<div class="card">
+						<header class="card-header" >
+							<p class="card-header-title">
+								<a asp-page="Robot" asp-route-model="@r.Model">@r.Model</a>
+							</p>
+						</header>
+						<div class="card-content">
+							<div class="content">
+								<p>Function: @r.Function</p>
+								<p>Travel Mode: @r.MovementType</p>
+								<p>Price: @r.Price €</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			}
+		}
+	</div>
+
+
+@*<a asp-page="Robot" asp-route-model="@r.Model">
+	@r.Model - @r.Function - @r.MovementType - @r.Price
+</a>*@
+<br />

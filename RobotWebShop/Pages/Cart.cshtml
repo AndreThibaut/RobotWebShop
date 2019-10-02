@@ -1,0 +1,36 @@
+﻿@page
+@model RobotWebShop.Pages.CartModel
+@{
+}
+
+<div class="container">
+	<div class="columns">
+		<div class="column is-6 is-offset-3">
+			@foreach (var r in Model.Cart)
+			{
+				<div class="level">
+					<div class="level-item">
+						<img class="image is-64x64" s src="~/Images/RobotLogo.png" />
+					</div>
+					<div class="level-item">
+						<p class="title">
+							@r.Model
+						</p>
+					</div>
+					<div class="level-item">
+						<p>@r.Quantity</p>
+					</div>
+					<div class="level-item">
+						<p>@r.Price</p>
+					</div>
+				</div>
+
+			}
+		<div class="has-text-right">
+			<a asp-page="/Index" class="button is-link"><i class="fas fa-angle-double-left"></i></a>
+			<a asp-page="/Checkout/CustomerInformation" class="button is-success"><i class="far fa-credit-card"></i></a>
+		</div>
+		</div>
+	</div>
+	@*<vc:cart view="Small"></vc:cart>*@
+</div>
