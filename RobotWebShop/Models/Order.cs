@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RobotWebShop.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,6 +21,8 @@ namespace RobotWebShop.Models
         public string Address2 { get; set; }
         public string City { get; set; }
         public string PostCode { get; set; }
+
+        public OrderStatus Status { get; set; }
 
         public ICollection<OrderStock> OrderStocks { get; set; }
     }

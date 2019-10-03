@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace RobotWebShop.Application.Robots
 {
-    public class RobotViewModel
+    public class RobotsViewModel
     {
         public string Model { get; set; }
         public string Function { get; set; }

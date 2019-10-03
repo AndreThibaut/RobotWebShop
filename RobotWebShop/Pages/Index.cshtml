@@ -20,6 +20,29 @@
 								<p>Function: @r.Function</p>
 								<p>Travel Mode: @r.MovementType</p>
 								<p>Price: @r.Price €</p>
+								@{ 
+									string cssClass = "";
+									string message = "";
+
+									if (r.StockCount == 0)
+									{
+										cssClass = "is-danger";
+										message = "Out Of Stock";
+									}
+									else if (r.StockCount <= 5)
+									{
+										cssClass = "is-warning";
+										message = "Low Stock";
+									}
+								}
+
+								@if (r.StockCount <= 5) 
+								{
+									<div class="notification is-paddingless has-text-centered @cssClass">
+										@message
+									</div>
+								}
+							
 							</div>
 						</div>
 					</div>

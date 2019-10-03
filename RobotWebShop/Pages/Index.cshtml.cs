@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using RobotWebShop.Application.Robots;
 using RobotWebShop.Database;
+using static RobotWebShop.Application.Robots.GetRobots;
 
 namespace RobotWebShop.UI.Pages
 {

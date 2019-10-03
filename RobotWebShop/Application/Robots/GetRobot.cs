@@ -48,7 +48,7 @@ namespace RobotWebShop.Application.Robots
                 {
                     StockID = y.StockID,
                     Model = y.Model,
-                    InStock = y.Quantity > 0
+                    Quantity = y.Quantity
                 })
             })
             .FirstOrDefault();
@@ -66,7 +66,7 @@ namespace RobotWebShop.Application.Robots
         {
             public int StockID { get; set; }
             public string Model { get; set; }
-            public bool InStock { get; set; }
+            public int Quantity { get; set; }
         }
     }
 }

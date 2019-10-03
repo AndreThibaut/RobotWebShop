@@ -16,7 +16,7 @@ namespace RobotWebShop.Application.Robots
             _context = context;
         }
 
-        public async Task<RobotViewModel> Do(RobotViewModel vm)
+        public async Task<RobotsViewModel> Do(RobotsViewModel vm)
         {
             var robot = new Robot
             {
@@ -28,7 +28,7 @@ namespace RobotWebShop.Application.Robots
             _context.Robots.Add(robot);
             await _context.SaveChangesAsync();
 
-            return new RobotViewModel
+            return new RobotsViewModel
             {
                 Model = robot.Model,
                 Function = robot.Function,

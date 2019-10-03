@@ -29,20 +29,33 @@
 										<label class="label">Type</label>
 										<div class="control">
 											<div class="select">
-												<select asp-for="CartViewModel.StockID">
+												<select asp-for="CartViewModel.StockID" onchange="toogleStock(event)">
 													@foreach (var s in Model.Robot.Stock)
 													{
-														<option value="@s.StockID">@s.Model</option>
+														bool disabled = s.Quantity <= 0;
+
+
+														<option value="@s.StockID" disabled="@disabled">@s.Model</option>
 													}
 												</select>
 											</div>
 										</div>
 									</div>
 									<div class="field">
-										<p class="control">
-											<input class="input" asp-for="CartViewModel.Quantity" placeholder="Quantity" value="1"/>
-										</p>
-									</div>
+										<div class="control">
+											<input class="input" asp-for="CartViewModel.Quantity" placeholder="Quantity" value="1" />
+										</div>
+										@foreach (var stock in Model.Robot.Stock)
+										{
+											if(stock.Quantity <= 5)
+											{
+												<p class="help is-danger is-hidden low-stock" id="low-stock-@stock.StockID">
+													@( stock.Quantity == 0 ? "Out Of Stock" : $"{stock.Quantity} left")
+												</p>
+											}
+											
+										}
+										</div>
 									<div class="field">
 										<div class="control">
 											<button class="button is-success" type="submit">submit</button>
@@ -57,3 +70,21 @@
 		</div>
 	</div>
 
+
+<script>
+
+	var toogleStock = function (e) {
+		console.log(e);
+
+		var stockToHide = document.querySelectorAll('.low-stock');
+		stockToHide.forEach(function (e) {
+			//if (stockToHide !== 0 && stockToHide !== undefined)
+				e.classList.add('is-hidden');
+		})
+
+		var stockToShow = document.getElementById('low-stock-' + e.target.value);
+		if (stockToShow !== null && stockToShow !== undefined)
+			stockToShow.classList.remove('is-hidden');
+	}
+
+</script>
