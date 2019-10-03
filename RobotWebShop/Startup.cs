@@ -15,7 +15,7 @@ using RobotWebShop.Application.UsersAdmin;
 using RobotWebShop.Database;
 using Stripe;
 
-namespace RobotWebShop.UI
+namespace RobotWebShop
 {
     public class Startup
     {
@@ -36,7 +36,7 @@ namespace RobotWebShop.UI
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AzureConnection")));
 
             services.AddIdentity<IdentityUser, IdentityRole>(options => 
             {

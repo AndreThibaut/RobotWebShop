@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
-    <StartupObject>RobotWebShop.UI.Program</StartupObject>
+    <StartupObject>RobotWebShop.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>

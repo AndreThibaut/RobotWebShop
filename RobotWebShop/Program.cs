@@ -12,7 +12,7 @@ using RobotWebShop.Database;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 
-namespace RobotWebShop.UI
+namespace RobotWebShop
 {
     public class Program
     {
