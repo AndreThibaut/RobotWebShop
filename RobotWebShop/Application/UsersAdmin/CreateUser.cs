@@ -26,10 +26,12 @@ namespace RobotWebShop.Application.UsersAdmin
         {
             var managerUser = new IdentityUser()
             {
-                UserName = request.UserName
+                UserName = request.UserName,
+                PasswordHash = request.Password
+                
             };
 
-            await _userManager.CreateAsync(managerUser, "password");
+            await _userManager.CreateAsync(managerUser);
 
             var managerClaim = new System.Security.Claims.Claim("Role", "Manager");
 

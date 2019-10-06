@@ -2,10 +2,11 @@
 @model RobotWebShop.Pages.Admin.ConfigureUsersModel
 @{
 }
-<div id="app" class="container">
-	<input v-model="username" />
-	<button @@click="createUser()">Create Manager</button>
-</div>
+	<div id="app" class="container">
+		<input v-model="username" placeholder="User Name" />
+		<input v-model="password" placeholder="Password" />
+		<button @@click="createUser()">Create Manager</button>
+	</div>
 
 
 @section scripts{
